@@ -1,0 +1,21 @@
+func main()
+	var curl: \src\curl@Curl :: \src\curl@makeCurl()
+	
+	var curlopt_url: \src\curl@Curloption :: %URL
+	
+	do curl.curl_easy_setopt_str(curlopt_url $ int, "http://github.com")
+	
+	;var curlopt_followlocation: \src\curl@Curloption :: %FOLLOWLOCATION
+	;do curl.curl_easy_setopt_org(curlopt_followlocation $ int, 1)
+	
+	var curle_ok: \src\curl@Curlcode :: %OK
+	var res: int :: curl.curl_easy_perform()
+	if(res = (curle_ok $ int))
+		do cui@print("request succedded!\n")
+	else
+		do cui@print(res.toStr() ~ "\n")
+		do cui@print("some error occored...\n")
+	end if
+	do curl.curl_easy_cleanup()
+	do cui@print("task finished\n")
+end func

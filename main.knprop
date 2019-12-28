@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<icon></icon>
+	<env>cui</env>
+	<snap>5</snap>
+	<zoom>1</zoom>
+	<related_files>
+		<path>./dependencies/libcurl-x64.dll</path>
+		<path>./dependencies/curl_kuin_bridge.dll</path>
+	</related_files>
+	<resources>
+		<resource>src\curl.kn</resource>
+	</resources>
+</configuration>
