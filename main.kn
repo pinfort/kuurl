@@ -3,13 +3,15 @@ func main()
 	
 	var curlopt_url: \src\curl@Curloption :: %URL
 	
-	do curl.curl_easy_setopt_str(curlopt_url $ int, "http://github.com")
+	do curl.curl_easy_setopt_str(curlopt_url $ int, "http://connectiontest.dev")
 	
 	;var curlopt_followlocation: \src\curl@Curloption :: %FOLLOWLOCATION
-	;do curl.curl_easy_setopt_org(curlopt_followlocation $ int, 1)
+	;do curl.curl_easy_setopt_int(curlopt_followlocation $ int, 1)
 	
 	var curle_ok: \src\curl@Curlcode :: %OK
-	var res: int :: curl.curl_easy_perform()
+	var res: int
+	var html: []char :: curl.curl_get_easy_response(&res)
+	;var res: int :: curl.curl_easy_perform()
 	if(res = (curle_ok $ int))
 		do cui@print("request succedded!\n")
 	else
@@ -18,4 +20,5 @@ func main()
 	end if
 	do curl.curl_easy_cleanup()
 	do cui@print("task finished\n")
+	do cui@print(html ~ "\n")
 end func
