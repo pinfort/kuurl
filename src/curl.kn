@@ -1,8 +1,8 @@
 +class Curl()
-	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_org]curl_easy_setopt_int(option: int, parapeter: int): int
+	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_org]curl_easy_setopt_int(option: int, parameter: int): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_str]curl_easy_setopt_str(option: int, parapeter: []char): int
+	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_str]curl_easy_setopt_str(option: int, parameter: []char): int
 	end func
 	
 	+func[curl_kuin_bridge.dll, export_curl_easy_perform]curl_easy_perform(): int
@@ -13,7 +13,7 @@
 	
 	+func[curl_kuin_bridge.dll, export_curl_easy_cleanup]curl_easy_cleanup()
 	end func
-
+	
 	var curl: int
 end class
 
