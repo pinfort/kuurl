@@ -3,11 +3,14 @@ func main()
 	
 	var curlopt_url: \src\curl@Curloption :: %URL
 	
-	do curl.curl_easy_setopt_str(curlopt_url $ int, "http://connectiontest.dev")
+	do curl.curl_easy_setopt_str(curlopt_url $ int, "https://connectiontest.dev")
 	
 	;var curlopt_followlocation: \src\curl@Curloption :: %FOLLOWLOCATION
 	;do curl.curl_easy_setopt_int(curlopt_followlocation $ int, 1)
 	
+	var curlopt_header: \src\curl@Curloption :: %HEADER
+	do curl.curl_easy_setopt_int(curlopt_header $ int, 1)
+
 	var curle_ok: \src\curl@Curlcode :: %OK
 	var res: int
 	var html: []char :: curl.curl_get_easy_response(&res)
