@@ -9,7 +9,7 @@ func main()
 	do curl.curl_easy_setopt_int(curlopt_header $ int, 1)
 	
 	var curle_ok: \src\curl@Curlcode :: %OK
-
+	
 	var response: \src\response@Response :: #\src\response@Response
 	
 	do curl.curl_config_easy_response(&response)
