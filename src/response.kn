@@ -1,0 +1,4 @@
++class Response()
+	+var body: []char
+	+var header: []char
+end class

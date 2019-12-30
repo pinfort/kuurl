@@ -10,5 +10,6 @@
 	</related_files>
 	<resources>
 		<resource>src\curl.kn</resource>
+		<resource>src\response.kn</resource>
 	</resources>
 </configuration>

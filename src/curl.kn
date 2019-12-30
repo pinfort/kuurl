@@ -8,10 +8,13 @@
 	+func[curl_kuin_bridge.dll, export_curl_easy_perform]curl_easy_perform(): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_get_easy_response]curl_get_easy_response(returnCode: &int): []char
+	+func[curl_kuin_bridge.dll, export_curl_easy_cleanup]curl_easy_cleanup()
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_curl_easy_cleanup]curl_easy_cleanup()
+	+func[curl_kuin_bridge.dll, export_config_easy_response]curl_config_easy_response(me2: &\src\response@Response): int
+	end func
+	
+	+func[curl_kuin_bridge.dll, export_config_easy_header]curl_config_easy_header(me2: &\src\response@Response): int
 	end func
 	
 	var curl: int
