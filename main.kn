@@ -15,7 +15,16 @@ func main()
 	do curl.curl_config_easy_response(&response)
 	do curl.curl_config_easy_header(&response)
 	
-	var res: int :: curl.curl_easy_perform()
+	do cui@print("ready to perform\n")
+	
+	var task: \src\curl@CurlAsyncTask :: curl.curl_async_perform()
+	do cui@print("async requesting!\n")
+	
+	;do cui@print("waiting\n")
+	do cui@print("test\n")
+	do task.curl_async_task_get()
+	var res: int :: 0
+	
 	if(res = (curle_ok $ int))
 		do cui@print("request succedded!\n")
 	else
@@ -24,9 +33,9 @@ func main()
 	end if
 	
 	do cui@print("----------header-------------\n")
-	do cui@print(response.header ~ "\n")
+	;do cui@print(response.header ~ "\n")
 	do cui@print("-----------body--------------\n")
-	do cui@print(response.body ~ "\n")
+	;do cui@print(response.body ~ "\n")
 	do curl.curl_easy_cleanup()
 	do cui@print("task finished\n")
 end func

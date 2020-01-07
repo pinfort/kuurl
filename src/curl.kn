@@ -17,7 +17,17 @@
 	+func[curl_kuin_bridge.dll, export_config_easy_header]curl_config_easy_header(me2: &\src\response@Response): int
 	end func
 	
+	+func[curl_kuin_bridge.dll, export_async_perform]curl_async_perform(): @CurlAsyncTask
+	end func
+	
 	var curl: int
+end class
+
++class CurlAsyncTask()
+	+func[curl_kuin_bridge.dll, export_async_task_get]curl_async_task_get(): int
+	end func
+	
+	var task: int
 end class
 
 +func[curl_kuin_bridge.dll, export_curl_easy_init, _make_instance]makeCurl(me2: @Curl): @Curl
