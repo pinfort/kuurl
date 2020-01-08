@@ -3,7 +3,7 @@ func main()
 	
 	var curlopt_url: \src\curl@Curloption :: %URL
 	
-	do curl.curl_easy_setopt_str(curlopt_url $ int, "https://www.yahoo.co.jp")
+	do curl.curl_easy_setopt_str(curlopt_url $ int, "http://www.yahoo.co.jp")
 	
 	var curlopt_header: \src\curl@Curloption :: %HEADER
 	do curl.curl_easy_setopt_int(curlopt_header $ int, 1)
@@ -19,10 +19,11 @@ func main()
 	
 	var task: \src\curl@CurlAsyncTask :: curl.curl_async_perform()
 	do cui@print("async requesting!\n")
-	
 	;do cui@print("waiting\n")
-	do cui@print("test\n")
-	do task.curl_async_task_get()
+	do task.get()
+	
+	
+	;do curl.curl_testfunc()
 	var res: int :: 0
 	
 	if(res = (curle_ok $ int))
