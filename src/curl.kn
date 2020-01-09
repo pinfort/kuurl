@@ -20,9 +20,6 @@
 	+func[curl_kuin_bridge.dll, export_async_perform, _make_instance]curl_async_perform(me2: @CurlAsyncTask): @CurlAsyncTask
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_testfunction]curl_testfunc(): int
-	end func
-	
 	var curl: int
 end class
 

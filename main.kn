@@ -1,31 +1,37 @@
+func syncExample(curl: \src\curl@Curl): int
+	do cui@print("sync requesting!\n")
+	ret curl.curl_easy_perform()
+end func
+
+func asyncExample(curl: \src\curl@Curl): int
+	var task: \src\curl@CurlAsyncTask :: curl.curl_async_perform()
+	do cui@print("async requesting!\n")
+	ret task.get()
+end func
+
 func main()
+	do cui@print("task starting\n")
 	var curl: \src\curl@Curl :: \src\curl@makeCurl()
 	
+	; リクエストURLの設定
 	var curlopt_url: \src\curl@Curloption :: %URL
+	do curl.curl_easy_setopt_str(curlopt_url $ int, "https://www.yahoo.co.jp")
 	
-	do curl.curl_easy_setopt_str(curlopt_url $ int, "http://www.yahoo.co.jp")
-	
-	var curlopt_header: \src\curl@Curloption :: %HEADER
-	do curl.curl_easy_setopt_int(curlopt_header $ int, 1)
-	
-	var curle_ok: \src\curl@Curlcode :: %OK
-	
+	;レスポンスを受け取るインスタンス
 	var response: \src\response@Response :: #\src\response@Response
 	
+	;受け取るインスタンスを設定
 	do curl.curl_config_easy_response(&response)
 	do curl.curl_config_easy_header(&response)
 	
 	do cui@print("ready to perform\n")
 	
-	var task: \src\curl@CurlAsyncTask :: curl.curl_async_perform()
-	do cui@print("async requesting!\n")
-	;do cui@print("waiting\n")
-	do task.get()
+	;リクエスト実行
+	;var res: int :: @syncExample(curl)
+	var res: int :: @asyncExample(curl)
 	
-	
-	;do curl.curl_testfunc()
-	var res: int :: 0
-	
+	;終了コードのチェック
+	var curle_ok: \src\curl@Curlcode :: %OK
 	if(res = (curle_ok $ int))
 		do cui@print("request succedded!\n")
 	else
@@ -33,10 +39,13 @@ func main()
 		do cui@print("some error occored...\n")
 	end if
 	
+	;レスポンス内容の表示
 	do cui@print("----------header-------------\n")
-	;do cui@print(response.header ~ "\n")
+	do cui@print(response.header ~ "\n")
 	do cui@print("-----------body--------------\n")
-	;do cui@print(response.body ~ "\n")
+	do cui@print(response.body ~ "\n")
+	
+	;後処理
 	do curl.curl_easy_cleanup()
 	do cui@print("task finished\n")
 end func
