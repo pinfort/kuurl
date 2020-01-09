@@ -1,10 +1,10 @@
 func syncExample(curl: \src\curl@Curl): int
 	do cui@print("sync requesting!\n")
-	ret curl.curl_easy_perform()
+	ret curl.easy_perform()
 end func
 
 func asyncExample(curl: \src\curl@Curl): int
-	var task: \src\curl@CurlAsyncTask :: curl.curl_async_perform()
+	var task: \src\curl@CurlAsyncTask :: curl.async_perform()
 	do cui@print("async requesting!\n")
 	ret task.get()
 end func
@@ -15,14 +15,14 @@ func main()
 	
 	; リクエストURLの設定
 	var curlopt_url: \src\curl@Curloption :: %URL
-	do curl.curl_easy_setopt_str(curlopt_url $ int, "https://www.yahoo.co.jp")
+	do curl.easy_setopt_str(curlopt_url $ int, "https://www.yahoo.co.jp")
 	
 	;レスポンスを受け取るインスタンス
 	var response: \src\response@Response :: #\src\response@Response
 	
 	;受け取るインスタンスを設定
-	do curl.curl_config_easy_response(&response)
-	do curl.curl_config_easy_header(&response)
+	do curl.config_easy_response(&response)
+	do curl.config_easy_header(&response)
 	
 	do cui@print("ready to perform\n")
 	
@@ -46,6 +46,6 @@ func main()
 	do cui@print(response.body ~ "\n")
 	
 	;後処理
-	do curl.curl_easy_cleanup()
+	do curl.easy_cleanup()
 	do cui@print("task finished\n")
 end func

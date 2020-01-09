@@ -1,23 +1,23 @@
 +class Curl()
-	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_org]curl_easy_setopt_int(option: int, parameter: int): int
+	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_org]easy_setopt_int(option: int, parameter: int): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_str]curl_easy_setopt_str(option: int, parameter: []char): int
+	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_str]easy_setopt_str(option: int, parameter: []char): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_curl_easy_perform]curl_easy_perform(): int
+	+func[curl_kuin_bridge.dll, export_curl_easy_perform]easy_perform(): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_curl_easy_cleanup]curl_easy_cleanup()
+	+func[curl_kuin_bridge.dll, export_curl_easy_cleanup]easy_cleanup()
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_config_easy_response]curl_config_easy_response(me2: &\src\response@Response): int
+	+func[curl_kuin_bridge.dll, export_config_easy_response]config_easy_response(me2: &\src\response@Response): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_config_easy_header]curl_config_easy_header(me2: &\src\response@Response): int
+	+func[curl_kuin_bridge.dll, export_config_easy_header]config_easy_header(me2: &\src\response@Response): int
 	end func
 	
-	+func[curl_kuin_bridge.dll, export_async_perform, _make_instance]curl_async_perform(me2: @CurlAsyncTask): @CurlAsyncTask
+	+func[curl_kuin_bridge.dll, export_async_perform, _make_instance]async_perform(me2: @CurlAsyncTask): @CurlAsyncTask
 	end func
 	
 	var curl: int
