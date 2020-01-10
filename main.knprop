@@ -5,11 +5,13 @@
 	<snap>5</snap>
 	<zoom>1</zoom>
 	<related_files>
-		<path>./dependencies/curl_kuin_bridge.dll</path>
-		<path>./dependencies/libcurl-x64.dll</path>
+		<path>./dlls/curl_kuin_bridge.dll</path>
+		<path>./dlls/libcurl-x64.dll</path>
 	</related_files>
 	<resources>
 		<resource>src\curl.kn</resource>
-		<resource>src\response.kn</resource>
+		<resource>src\curl.code.kn</resource>
+		<resource>src\curl.option.kn</resource>
+		<resource>src\curl.response.kn</resource>
 	</resources>
 </configuration>
