@@ -14,11 +14,11 @@ func main()
 	var curl: \src\curl@Curl :: \src\curl@makeCurl()
 	
 	; リクエストURLの設定
-	var curlopt_url: \src\curl@Curloption :: %URL
+	var curlopt_url: \src\curl@CurlOption :: %URL
 	do curl.easy_setopt_str(curlopt_url $ int, "https://www.yahoo.co.jp")
 	
 	;レスポンスを受け取るインスタンス
-	var response: \src\response@Response :: #\src\response@Response
+	var response: \src\curl@Response :: #\src\curl@Response
 	
 	;受け取るインスタンスを設定
 	do curl.config_easy_response(&response)
@@ -31,7 +31,7 @@ func main()
 	var res: int :: @asyncExample(curl)
 	
 	;終了コードのチェック
-	var curle_ok: \src\curl@Curlcode :: %OK
+	var curle_ok: \src\curl@CurlCode :: %OK
 	if(res = (curle_ok $ int))
 		do cui@print("request succedded!\n")
 	else
