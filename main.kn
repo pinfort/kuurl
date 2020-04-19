@@ -15,7 +15,7 @@ func main()
 	
 	; リクエストURLの設定
 	var curlopt_url: \src\curl@CurlOption :: %URL
-	do curl.easy_setopt_str(curlopt_url $ int, "https://www.yahoo.co.jp")
+	do curl.easy_setopt_str(curlopt_url $ int, "https://github.com/pinfort/kuurl/archive/master.zip")
 	
 	;レスポンスを受け取るインスタンス
 	var response: \src\curl@Response :: #\src\curl@Response
@@ -44,6 +44,11 @@ func main()
 	do cui@print(response.header ~ "\n")
 	do cui@print("-----------body--------------\n")
 	do cui@print(response.body ~ "\n")
+	do cui@print("-----------bin---------------\n")
+	for i(0, ^response.binary_body - 1)
+		do cui@print(response.binary_body[i].toStr())
+	end for
+	do cui@print("\n")
 	
 	;後処理
 	do curl.easy_cleanup()
