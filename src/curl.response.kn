@@ -2,5 +2,4 @@
 	+var body: []char
 	+var header: []char
 	+var binary_body: []bit8
-	+var binary_index: int
 end class
