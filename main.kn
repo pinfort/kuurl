@@ -17,6 +17,9 @@ func main()
 	var curlopt_url: \src\curl@CurlOption :: %URL
 	do curl.easy_setopt_str(curlopt_url $ int, "https://github.com/pinfort/kuurl/archive/master.zip")
 	
+	var curlopt_follow: \src\curl@CurlOption :: %FOLLOWLOCATION
+	do curl.easy_setopt_int(curlopt_follow $ int, 1)
+	
 	;レスポンスを受け取るインスタンス
 	var response: \src\curl@Response :: #\src\curl@Response
 	
