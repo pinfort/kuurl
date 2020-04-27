@@ -36,3 +36,6 @@ end class
 
 +func[curl_kuin_bridge.dll, export_curl_easy_init, _make_instance]makeCurl(me2: @Curl): @Curl
 end func
+
++func[curl_kuin_bridge.dll, export_dump_memory]dump_memory(input: []char)
+end func
