@@ -9,6 +9,9 @@ include code
 	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_str]easy_setopt_str(option: int, parameter: []char): int
 	end func
 	
+	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_arr]easy_setopt_arr(option: int, parameter: []bit8): int
+	end func
+	
 	+func[curl_kuin_bridge.dll, export_curl_easy_perform]easy_perform(): int
 	end func
 	
