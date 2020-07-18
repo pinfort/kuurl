@@ -13,5 +13,6 @@
 		<resource>src\curl.code.kn</resource>
 		<resource>src\curl.option.kn</resource>
 		<resource>src\curl.response.kn</resource>
+		<resource>src\curl.slist.kn</resource>
 	</resources>
 </configuration>

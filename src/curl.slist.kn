@@ -1,0 +1,16 @@
++class Slist()
+	+func[curl_kuin_bridge.dll, export_curl_slist_append, _make_instance]append(me2: @Slist, string: []char): @Slist
+	end func
+	
+	+func[curl_kuin_bridge.dll, export_curl_slist_free_all]free_all()
+	end func
+	
+	+func getPtr(): int
+		ret me.slist
+	end func
+	
+	var slist: int
+end class
+
++func[curl_kuin_bridge.dll, export_curl_slist_init, _make_instance]makeSlist(me2: @Slist, string: []char): @Slist
+end func

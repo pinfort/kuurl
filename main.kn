@@ -60,7 +60,7 @@ func main2()
 	do cui@print("task finished\n")
 end func
 
-func main()
+func main3()
 	try showError
 		do @main2()
 		do cui@print("success\n")
@@ -68,4 +68,11 @@ func main()
 		do cui@print("fail\n")
 		do cui@print("ERRORCODE: " ~ showError.toStr())
 	end try
+end func
+
+func main()
+	var slist: \src\curl@Slist :: \src\curl@makeSlist("string")
+	
+	do slist.append("free")
+	do slist.free_all()
 end func

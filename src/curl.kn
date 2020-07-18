@@ -1,6 +1,7 @@
 include response
 include option
 include code
+include slist
 
 +class Curl()
 	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_org]easy_setopt_int(option: int, parameter: int): int
@@ -10,6 +11,10 @@ include code
 	end func
 	
 	+func[curl_kuin_bridge.dll, export_curl_easy_setopt_arr]easy_setopt_arr(option: int, parameter: []bit8): int
+	end func
+	
+	+func easy_setopt_slist(option: int, parameter: @Slist): int
+		ret me.easy_setopt_int(option, parameter.getPtr())
 	end func
 	
 	+func[curl_kuin_bridge.dll, export_curl_easy_perform]easy_perform(): int
