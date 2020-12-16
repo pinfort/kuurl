@@ -2,4 +2,20 @@
 	+var body: []char
 	+var header: []char
 	+var binary_body: []bit8
+	
+	+*func toStr(): []char
+		var res: []char :: ""
+		if(me.header <>& null)
+			do res :: res ~ me.header
+		end if
+		
+		if(me.body <>& null)
+			if(^res = 0)
+				do res :: me.body
+			else
+				do res :: res ~ "\n\n" ~ me.body
+			end if
+		end if
+		ret res
+	end func
 end class
