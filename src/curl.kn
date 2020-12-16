@@ -23,6 +23,9 @@ include slist
 	+func[curl_kuin_bridge.dll, export_curl_easy_cleanup]easy_cleanup()
 	end func
 	
+	+func[curl_kuin_bridge.dll, export_curl_easy_reset]easy_reset()
+	end func
+	
 	+func[curl_kuin_bridge.dll, export_config_easy_response]config_easy_response(me2: &@Response): int
 	end func
 	
